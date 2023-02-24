@@ -25,7 +25,6 @@ body{
     overflow-y: auto;
     overflow-x: hidden;
     perspective: 10px;
-    scroll-snap-type: y proximity;
 }
 header {
     position: relative;
@@ -38,7 +37,6 @@ header {
 }
 
 .background {
-    scroll-snap-align: start;
     transform: translatez(-10px) scale(2);
 }
 .foreground {
@@ -55,7 +53,6 @@ header {
 }
 
 .section {
-    scroll-snap-align: start;
     background-image: url(imgs/bg2.jpg);
     background-position: center;
     background-attachment:fixed;
