@@ -6,6 +6,13 @@
     --scroll-bar-bg-color: #f6f6f6;
 }
 
+* {
+    scrollbar-color: var(--scroll-bar-color);
+    scrollbar-base-color: var(--scroll-bar-bg-color);
+    scrollbar-track-color: var(--scroll-bar-bg-color);
+    scrollbar-width: 8px;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -26,6 +33,7 @@ body{
     overflow-x: hidden;
     perspective: 10px;
 }
+
 header {
     position: relative;
     display: flex;
@@ -36,9 +44,120 @@ header {
     z-index: -1;
 }
 
+.btn-start {
+    bottom: 50px;
+    display:flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: #fff;
+    box-shadow:  0 0 5px black; 
+    text-decoration: none;
+    outline: none;
+    opacity: 0.7;
+    transition: 0.1s ease-in-out;
+    animation: bounce 1.5s ;
+}
+.btn-start:hover  {
+    opacity: 1;
+    cursor: pointer;
+    transform: scale(1.2) rotate(180deg);
+    animation: grow infinite 1.5s;
+}
+.fa-arrow-up-long {
+    transition: all 0.5s linear;
+    opacity: 0;
+    position: absolute;
+}
+.fa-arrow-down-long {
+    transition: all 0.5s linear;
+    opacity: 1;
+    position: absolute;
+}
+.btn-start:hover .fa-arrow-down-long {
+    opacity: 0;
+}
+.btn-start:hover .fa-arrow-up-long {
+    opacity: 1;
+}
+.hidden {
+    display: none;
+}
+.show {
+    display: flex;
+    animation: grow 1s;
+}
+.btn-top {
+    
+    position:static;
+    bottom: 20px;
+    right: 40px;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: #fff;
+    box-shadow:  0 0 5px black; 
+    text-decoration: none;
+    outline: none;
+    transition: 0.5s ease-in-out;
+    opacity: 0.4;
+}
+.btn-top:hover {
+    opacity: 1;
+}
+
+.btn-start:focus {
+    outline: none;
+}
+.jump {
+    animation: jump 3s;
+}
+@keyframes grow {
+        0%, 20%, 50%, 80%, 100% {
+            transform: scale(1);
+    }
+    30% {
+        transform: scale(1.4);
+    }
+    60% {
+        transform: scale(1.2);
+    }
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(20px);
+    }
+    60% {
+        transform: translateY(10px);
+    }
+}
+@keyframes jump {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    20% {
+        transform: translateY(-300px) scale(0.3);
+    }
+}
+
 .background {
     transform: translatez(-10px) scale(2);
 }
+
 .foreground {
     transform: translatez(-5px) scale(1.5);
 }
@@ -53,10 +172,10 @@ header {
 }
 
 .section {
-    background-image: url(imgs/bg2.jpg);
     background-position: center;
     background-attachment:fixed;
-    background-size:cover;
+    background-size: cover;
+    background: url(imgs/mont2.jpg);
     z-index: -1;
     min-height: 100%;
     height: auto;
@@ -68,22 +187,59 @@ header {
     box-shadow: 0 0 100px black;
 }
 
+.neon{
+    width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+    z-index: -100;
+    background:-moz-linear-gradient(45deg, rgba(140, 0, 255, .6) 0%, rgba(2, 242, 114, .7) 100%);
+    background:    gradient( left bottom, right top, color-stop (0%, rgba(140, 0, 255, .6) ), color-stop(100%, rgba(2, 242, 114, .7) ) );
+    background:  -o-linear-gradient(45deg, rgba(140, 0, 255, .6) 0%, rgba(2, 242, 114, .7) 100%);
+    background: -ms-linear-gradient(45deg, rgba(140, 0, 255, .6) 0%, rgba(2, 242, 114, .7) 100%);
+    background:     linear-gradient(45deg, rgba(140, 0, 255, .6) 0%, rgba(2, 242, 114, .7) 100%);
+    background-color: #afafaf;    
+}
+
+.line{
+    width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-image: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) 1px, transparent 1px, transparent 10px);
+	background-size: 28px 28px;
+    z-index: -100;
+}
 
 .title {
-    font-size: 7rem;
-    color: white;
-    text-shadow: 0 0 5px black;
+    font-size: 7em;
+    text-shadow: 0 0 5px black; 
     transform: translateZ(-5px) scale(1.5);
     z-index: 2;
+    outline: none;
+}
+.title a {
+    text-decoration: none;
+    color: white;
+    outline: none;
+}
+.title a:focus {
+    outline: none;
+}
+
+.fixed-title {
+    position: fixed;
+    top: 20px;
+    left: 20px;
 }
 
 .wrap{
-    width: 85%;
+    width: 70%;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    align-content: flex-start;
-    padding-top: 80px;
 }
   
 .item-container {
@@ -95,7 +251,7 @@ header {
 }
 
 .item {
-    border-radius: 1rem;
+    border-radius: 5px;
     border: 1px solid white;
     backdrop-filter: blur(5px);
     transition: all .1s linear; 
@@ -103,19 +259,21 @@ header {
     width: 200px;
     height: 200px;
     max-height: 550px;
-    margin: 0.2em;
+    margin: 0.5em;
     color: var(--clr-light);
     text-align: center;
     flex-grow: 1;
 }
 
 .item-container:hover .item:hover{
-    box-shadow: 0px 0px 15px 1px rgba(255,255,255,0.2);
+    box-shadow: inset 0px 0px 5px 1px rgba(255,255,255,0.2), 0px 0px 5px 1px rgba(255,255,255,0.2);    
     cursor: pointer;
-    backdrop-filter: blur(0px);
+    backdrop-filter: blur(2px);
 }
+
 .item-container:hover .item:active{
-    box-shadow: 0px 0px 20px 1px rgba(255,255,255,0.4);
+    box-shadow:  0px 0px 20px 1px rgba(255,255,255,0.4);
+    box-shadow: inset 0px 0px 5px 1px rgba(255,255,255,0.2);
 }
 
 .item-title {
@@ -165,7 +323,6 @@ h2{
     bottom:8px;
 }
 
-
 .navbar {
     width: 100%;
     height: 50px;
@@ -174,11 +331,19 @@ h2{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.1) );
-    border-bottom: 1px solid rgba(0,0,0,0.2)
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .1);
 }
 
 .nav-menu {
+    display:flex;
     flex:1;
     margin: 0 auto;
     padding:0;
@@ -187,15 +352,16 @@ h2{
 
 .nav-menu:hover li a{
     font-weight: 500;
-    transform: scale(1.05);
     transition: all .2s ease-in-out; 
 }
 
 .nav-menu li {
     list-style: none;
+    flex: 1;
 }
 
 .nav-menu li a {
+    border-inline: 1px solid rgba(255, 255, 255, .6);
     width: 100%;
     display: block;
     text-decoration: none;
@@ -203,3 +369,7 @@ h2{
     text-shadow: 0 0 5px black;
     color: white;
 } 
+
+.toppage {
+    display:none;
+}
