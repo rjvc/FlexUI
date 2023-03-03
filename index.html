@@ -24,7 +24,6 @@
       
         <div class="btn-start" tabindex="0" >
             <i class="fa-sharp fa-solid fa-arrow-down-long fa-xl"></i>
-            <i class="fa-sharp fa-solid fa-arrow-up-long fa-xl"></i>
         </div>
         
     </header>
@@ -32,6 +31,7 @@
     
     <div class="section">
         <div class="navbar">
+            <div class="fixed-nav-logo hidden"><a>FlexUI</a></div>
             <ul class="nav-menu">
                 <li class="nav-item menu1"> <a href="#">Articles</a></li>
         
@@ -40,11 +40,18 @@
                 <li class="nav-item menu3"> <a href="#">Interface</a></li>
            
                 <li class="nav-item menu4"> <a href="#">About</a></li>
-            </ul>
-        </div>
-        <div class="spot"></div>
-            <div class="wrap">
                 
+                <li class="menu-btn"> 
+                    <a class="hamburger" onclick="ListMenu()">
+                        <i class="fa-solid fa-bars"></i>
+                    </a>
+                </li>
+            </ul> 
+        </div>
+        
+       
+        <div class="wrap">
+            
             <div class="item-container">
                 <div tabindex="0" class="item item-1">
                     <div class="caption">Item 1</div>
@@ -55,14 +62,14 @@
                 <div tabindex="0" class="item item-3">
                     <div class="caption">Item 3</div>
                 </div>
-                <div class="break"></div>
+                    <div class="break"></div>
                 <div tabindex="0" class="item item-4">
                     <div class="caption">Item 4</div>
                 </div>
                 <div tabindex="0" class="item item-5">
                     <div class="caption">Item 5</div>
                 </div>
-                <div class="break"></div>
+                    <div class="break"></div>
                 <div tabindex="0" class="item item-6">
                     <div class="caption">Item 6</div>
                 </div>
@@ -71,12 +78,18 @@
                 </div>
                 <div tabindex="0" class="item item-8">
                     <div class="caption">Item 8</div>
+                </div>
             </div>
+            
         </div>
-        </div>
-    <div class="neon"></div>
-    <div class="line"></div>
-    
+        <div class="neon"></div>
+        <div class="line"></div>
+    </div>
+    <div id="myLinks">
+        <a>Articles</a>
+        <a>Articles</a>
+        <a>Interface</a>
+        <a>About</a>
     </div>
 </div>
 <div class="hidden btn-top" tabindex="0" >
